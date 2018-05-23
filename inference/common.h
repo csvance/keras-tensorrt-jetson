@@ -9,8 +9,7 @@
 using namespace nvuffparser;
 using namespace nvinfer1;
 
-inline int64_t volume(const Dims& d)
-{
+inline int64_t volume(const Dims& d) {
 	int64_t v = 1;
 	for (int64_t i = 0; i < d.nbDims; i++)
 		v *= d.d[i];
@@ -35,11 +34,9 @@ void* safeCudaMalloc(size_t);
         return (ret);                                                                       \
     } while(0)
 
-
 // Logger for GIE info/warning/errors
-class Logger : public nvinfer1::ILogger
-{
-    public:
+class Logger: public nvinfer1::ILogger {
+public:
 	void log(nvinfer1::ILogger::Severity, const char*) override;
 };
 

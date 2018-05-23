@@ -29,7 +29,7 @@ public:
 private:
 	ICudaEngine* engine;
 	IExecutionContext* context;
-    IUffParser* parser;
+	IUffParser* parser;
 	Logger logger;
 
 	int maxBatchSize;

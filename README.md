@@ -1,4 +1,4 @@
-#keras-tensorrt-jetson
+# keras-tensorrt-jetson
 nVidia's Jetson platform is arguably the most powerful family of devices for deep learning at the edge. In order to achieve the full benefits of the platform, a framework called TensorRT drastically reduces inference time for supported network architectures and layers. However, nVidia does not currently make it easy to take your existing models from Keras/Tensorflow and deploy them on the Jetson with TensorRT. One reason for this is the python API for TensorRT only supports x86 based architectures. This leaves us with no real easy way of taking advantage of the benefits of TensorRT. However, there is a harder way that does work: To achieve maximum inference performance we can export and convert our model to .uff format, and then load it in TensorRT's C++ API.
 
 ## 1. Training and exporting to .pb

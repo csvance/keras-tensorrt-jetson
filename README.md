@@ -26,9 +26,13 @@ More information on the .pb export and .uff conversion is available from [nVidia
 I have create a generic class which can load the graph from a .uff file and setup TensorRT for inference. It supports any number of inputs and outputs and is available on my [Github][cpp]. It can be built with [nVidia nSight Eclipse Edition][eclipse] using a remote toolchain [(instructions here)][nsight]
 
 ### Caveats
-- Keep in mind that many layers are not supported by TensorRT 3.0. The most obvious omission is BatchNorm, which is used in many different types of deep neural nets.
+- Keep in mind that many layers are not supported by TensorRT 3.0. The most obvious omission is Keras particular implementation of BatchNorm.
 - Concatenate only works on the channel axis and if and only if the other dimensions are the same. If you have multiple paths for convolution, you are limited to concatenating them only when they have the same dimensions.
 
+### nVidia DIGITS TensorRT Inference Nodes for ROS
+- Support for DetectNet, ImageNet, and soon SegNet!
+- Includes a flexible abstraction layer for TensorRT
+- [Github][jetson-tensorrt]
 
 [notebook]: https://github.com/csvance/keras-tensorrt-jetson/blob/master/training/training.ipynb
 [cpp]: https://github.com/csvance/keras-tensorrt-jetson/blob/master/inference/
@@ -36,3 +40,4 @@ I have create a generic class which can load the graph from a .uff file and setu
 [docker]: https://github.com/chybhao666/TensorRT
 [nsight]: https://devblogs.nvidia.com/remote-application-development-nvidia-nsight-eclipse-edition/
 [eclipse]: https://developer.nvidia.com/nsight-eclipse-edition
+[jetson-tensorrt]: https://github.com/csvance/jetson_tensorrt
